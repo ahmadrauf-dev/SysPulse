@@ -1,0 +1,19 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <thread>
+#include <chrono>
+
+using namespace std;
+
+void sum_ram_usage();
+
+void sum_ram_usage()
+{
+
+    string label,unit;
+    int mem_total,mem_free,mem_available,mem_buffer,mem_cached;
+    fstream ram_file1("/proc/meminfo",ios::in);
+
+    ram_file1
+}

@@ -1,10 +1,10 @@
 #include <iostream>
-#include "cpu.h"
+#include "cpu_usage.h"
 
 using namespace std;
 
 
 int main()
 {
-    ums_cpu_usage(); 
+    sum_cpu_usage(); 
 }
