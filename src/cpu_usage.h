@@ -71,7 +71,11 @@ void sum_cpu_usage()
 
     double cpu_usage = (double)(total_usage - idle_usage)/total_usage * 100.0;
 
-    cout<<"Cpu Usage % :"<< cpu_usage;
+    cout<<fixed<<setprecision(2);
+    cout<<"\n==================================================\n";
+    cout<<"                  CPU USAGE";
+    cout<<"\n==================================================\n";
+    cout<<"Cpu Usage        : "<< cpu_usage<<"%"<<endl;
 
 
 }
