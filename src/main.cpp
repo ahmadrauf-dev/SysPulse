@@ -3,6 +3,7 @@
 #include "ram_usage.h"
 #include "disk_usage.h"
 #include "system_info.h"
+#include "gpu_usage.h"
 
 using namespace std;
 
@@ -15,4 +16,5 @@ int main()
     sum_ram_usage();
     sum_disk_usage();
     sum_system_info();
+    sum_gpu_usage();
 }
