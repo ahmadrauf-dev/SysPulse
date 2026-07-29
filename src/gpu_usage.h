@@ -3,6 +3,7 @@
 #include <fstream>
 #include <thread>
 #include <chrono>
+#include <cstdio>
 
 using namespace std;
 
@@ -78,9 +79,12 @@ void amd_gpu_usage()
 void intel_gpu_usage()
 {
 
+    
 }
 
 void nvidia_gpu_usage()
 {
-
+    FILE *pipe = popen("nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits","r");
+    if(pipe==nullptr)
+    return -1;
 }
