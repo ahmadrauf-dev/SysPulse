@@ -23,3 +23,6 @@
 - GPU USAGE
 - GPU Total Vram
 - GPU Vram Usage
+
+## SysPulse V1.1
+- Added network usage 

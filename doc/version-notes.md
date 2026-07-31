@@ -1,4 +1,4 @@
-## SysPulse V1.0
+## SysPulse V1.1
 
 <!-- CPU -->
 - CPU utilization
@@ -23,3 +23,4 @@
 - GPU USAGE
 - GPU Total Vram
 - GPU Vram Usage
+<!-- Network Usage -->

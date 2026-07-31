@@ -84,7 +84,7 @@ void intel_gpu_usage()
 
 void nvidia_gpu_usage()
 {
-    FILE *pipe = popen("nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits","r");
-    if(pipe==nullptr)
-    return -1;
+    // FILE *pipe = popen("nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits","r");
+    // if(pipe==nullptr)
+    // return -1;
 }

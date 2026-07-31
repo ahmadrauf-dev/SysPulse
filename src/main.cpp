@@ -4,6 +4,7 @@
 #include "disk_usage.h"
 #include "system_info.h"
 #include "gpu_usage.h"
+#include "network_usage.h"
 
 using namespace std;
 
@@ -17,4 +18,5 @@ int main()
     sum_disk_usage();
     sum_system_info();
     sum_gpu_usage();
+    sum_network_usage();
 }
