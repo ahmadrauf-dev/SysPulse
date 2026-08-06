@@ -2,6 +2,7 @@
 
 <!-- CPU -->
 - CPU utilization
+- Top Cpu using Processes
 <!-- DISK -->
 - USED DISK
 - Total Disk

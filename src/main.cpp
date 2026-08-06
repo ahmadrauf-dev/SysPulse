@@ -5,6 +5,7 @@
 #include "system_info.h"
 #include "gpu_usage.h"
 #include "network_usage.h"
+#include "cpu_pid.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ int main()
     cout<<"\n==================================================\n";
     cout<<"            SYSTEM USAGE MONITOR";
     sum_cpu_usage(); 
+    sum_pid_info();
     sum_ram_usage();
     sum_disk_usage();
     sum_system_info();

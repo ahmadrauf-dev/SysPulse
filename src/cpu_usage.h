@@ -13,7 +13,7 @@ void sum_cpu_usage()
 {
 
     // reads data from stat file
-    const int time_interval = 500; // it will be in milli seconds
+    const int time_interval = 1000; // it will be in milli seconds
     fstream cpu_file1("/proc/stat",ios::in);
     string cpu;
     long long user,nice,system,idle,iowait,irq,softirq,steal;
@@ -76,6 +76,8 @@ void sum_cpu_usage()
     cout<<"                  CPU USAGE";
     cout<<"\n==================================================\n";
     cout<<"Cpu Usage        : "<< cpu_usage<<"%"<<endl;
+
+//     while(getline(cpu))
 
 
 }
