@@ -26,3 +26,6 @@
 
 ## SysPulse V1.1
 - Added network usage 
+
+## SysPulse V1.2
+- Added Top cpu consuming proccesses
