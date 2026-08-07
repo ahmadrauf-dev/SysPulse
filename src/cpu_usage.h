@@ -1,3 +1,6 @@
+#ifndef CPU_USAge_H
+#define CPU_USAGE_H
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -8,10 +11,12 @@
 using namespace std;
 
 void sum_cpu_usage();
+double sum_cpu_temp();
 
 void sum_cpu_usage()
 {
-
+        // getting cpu temp;
+        double cpu_temp = sum_cpu_temp();
     // reads data from stat file
     const int time_interval = 1000; // it will be in milli seconds
     fstream cpu_file1("/proc/stat",ios::in);
@@ -75,9 +80,29 @@ void sum_cpu_usage()
     cout<<"\n==================================================\n";
     cout<<"                  CPU USAGE";
     cout<<"\n==================================================\n";
-    cout<<"Cpu Usage        : "<< cpu_usage<<"%"<<endl;
+    cout<<"Cpu Usage        : "<< cpu_usage<<"%"<<"\n";
+        if(cpu_temp!=-1)
+        {
+                cout<<"CPU Temperature  : "<<cpu_temp<<"°C"<<endl;    
+        }else{
+                cout<<"CPU Temperature  : "<<" N/A "<<endl;
+        }
+        
 
 //     while(getline(cpu))
 
 
 }
+ double sum_cpu_temp()
+ {
+        fstream cpu_temp_file("/sys/class/thermal/thermal_zone0/temp",ios::in);
+        int cpu_temp;
+        if(!cpu_temp_file)
+        {
+                return -1;
+        }
+        cpu_temp_file>>cpu_temp;
+        return cpu_temp/1000.0;
+ }
+
+#endif
