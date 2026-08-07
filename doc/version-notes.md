@@ -1,4 +1,4 @@
-## SysPulse V1.1
+## SysPulse V1.2
 
 <!-- CPU -->
 - CPU utilization
