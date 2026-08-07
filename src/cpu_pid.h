@@ -6,19 +6,23 @@
 #include <cctype>
 #include <vector>
 #include <algorithm>
+// #include "cpu_usage.h"
 using namespace std;
 void sum_pid_info();
 
 // change this to change how many top processes to show
 const int check_number_of_processes = 10;
+double instant_cpu_usage;
 struct Process
 {
     int pid;
     string name;
     long total_time;
     long current_time;
+    double cpu_percent;
 
 };
+
 void sum_pid_info()
 {
     vector<Process> cpu_processes;
@@ -47,7 +51,6 @@ void sum_pid_info()
             if(processFile.is_open())
             {
                 Process p1;
-                // cout<<"Opened"<<path<<endl;
                 int cpu_pid;
                 string process_name;
                 char state;
@@ -57,9 +60,6 @@ void sum_pid_info()
                 processFile>>process_name;
                 processFile>>state;
 
-                // cout<<"PID: "<<cpu_pid<<endl;
-                // cout<<"Name: "<<process_name<<endl;
-                // cout<<"State: "<<state<<endl;
 
                 for(int i =0;i<10;i++)
                 {
@@ -67,21 +67,11 @@ void sum_pid_info()
                 }
                 processFile>>utime;
                 processFile>>stime;
-                // cout<<process_name<<" "
-                //     <<utime<<" "
-                //     <<stime<<" "<<endl;
 
                 p1.pid = cpu_pid;
                 p1.name = process_name;
-                // p1.utime = utime;
-                // p1.stime = stime;
                 p1.total_time = utime + stime;
                 p1.current_time=p1.total_time;
-
-                // cout<<p1.pid<<" "
-                //     <<p1.name<<" "
-                //     <<p1.utime<<" "
-                //     <<p1.stime<<endl;
 
                 cpu_processes.push_back(p1);
             }else{
@@ -111,9 +101,7 @@ void sum_pid_info()
             ifstream processFile(path);
             if(processFile.is_open())
             {
-                // Process p1;
-                // p1.current_time=0;
-                // cout<<"Opened"<<path<<endl;
+
                 int cpu_pid;
                 string process_name;
                 char state;
@@ -122,10 +110,6 @@ void sum_pid_info()
                 processFile>>cpu_pid;
                 processFile>>process_name;
                 processFile>>state;
-
-                // cout<<"PID: "<<cpu_pid<<endl;
-                // cout<<"Name: "<<process_name<<endl;
-                // cout<<"State: "<<state<<endl;
 
                 for(int i =0;i<10;i++)
                 {
@@ -144,22 +128,6 @@ void sum_pid_info()
                         break;
                     }
                 }
-                // cout<<process_name<<" "
-                //     <<utime<<" "
-                //     <<stime<<" "<<endl;
-
-                // p1.pid = cpu_pid;
-                // p1.name = process_name;
-                // // p1.utime = utime;
-                // // p1.stime = stime;
-                // p1.total_time = utime + stime;
-
-                // cout<<p1.pid<<" "
-                //     <<p1.name<<" "
-                //     <<p1.utime<<" "
-                //     <<p1.stime<<endl;
-
-                // cpu_processes.push_back(p1);
             }else{
                 cout<<"failed"<<endl;
                 continue;
@@ -167,6 +135,9 @@ void sum_pid_info()
         }
         
     }
+
+
+
     sort(cpu_processes.begin(), cpu_processes.end(),
     [](const Process &a, const Process &b)
     {
